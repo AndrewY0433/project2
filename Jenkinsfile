@@ -7,11 +7,18 @@ pipeline {
         stage("first stage") {
             steps {
                 script {
-                    gv = load
+                    gv = load "script.groovy"
                 }
                 echo 'first stage completed'
             }
         }
+        
+        stage("second stage") {
+            steps {
+                script {
+                    gv.firstFunction()
+                }
+            }
     }
     
 }
